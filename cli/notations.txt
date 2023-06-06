@@ -1,0 +1,6 @@
+criar um cli
+cobra-cli add X
+
+criar um cli sendo filho de um cli criado por vc(encadeamento de comandos)
+cobra-cli add create -p 'categoryCmd'
+cobra-cli add list -p 'categoryCmd'

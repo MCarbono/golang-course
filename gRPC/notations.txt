@@ -1,0 +1,30 @@
+instalação compilador e plugins
+
+site oficial do gRPC - https://grpc.io/docs/languages/go/quickstart/
+site oficial do protocolBuffers - https://developers.google.com/protocol-buffers/docs/gotutorial?hl=pt-br
+
+instalar protoc no mac
+
+brew install protobuf
+
+instalar plugins do compilador do protoc
+
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+
+cria-se uma definição do protofile(um schema, um contrato)
+
+geração dos arquivos protocol buffers/grpc. Execute o comando:
+protoc --go_out=. --go-grpc_out=. proto/course_category.proto
+
+client chamado evans para fazer chamadas grpc
+https://github.com/ktr0731/evans
+
+para usá-lo, é necessário no arquivo main.go que instancia o servidor que 
+utilize a seguinte configuração: reflection.Register(grpcServer)
+
+na raiz do projeto, rode o seguinte comando para abrir o client:
+evans -r repl
+
+para selecionar o serviço, utilize o comando service nome_do_servico
+para realizar uma chamada, digite o comando call nome_do_método

@@ -1,0 +1,59 @@
+lib usada 
+https://gqlgen.com/
+
+mutações e consultas no graphQL
+
+mutation createCategory {
+  createCategory(input: {name: "categoria de teste", description:"descricao de teste"}) {
+    id
+    name
+    description
+  }
+}
+
+mutation createCourse {
+  createCourse(input: {name: "full cycle", description: "descricao de teste", categoryId:"4c859e79-c2d8-437e-b0b1-1edbcd6616d2"}){
+    id
+    name
+  }
+} 
+
+query queryCategories {
+  categories {
+    id
+    name
+  }
+}
+
+query queryCategoriesWithCourses {
+  categories {
+    id
+    name
+    courses {
+      id
+      name
+    }
+  }
+}
+
+query queryCourses {
+  courses {
+    id
+    name
+    description
+    category{id}
+  }
+}
+
+query queryCoursesWithCategories {
+  courses {
+    id
+    name
+    description
+    category{
+      id
+      name
+      description
+    }
+  }
+}

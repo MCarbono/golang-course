@@ -1,0 +1,26 @@
+acessar máquina do docker
+
+docker-compose exec image_name bash
+
+build 
+
+go build -o nome_do_binário .
+
+há algumas formas de buildar a imagem de forma mais leve, sem o DWARF(debugging with arbitrary record format), ou seja,
+sem poder rodar ferramentas de debug, profile, etc. Caso n seja gerado um arquivo dessa forma, ele será menor.
+utilize o comando abaixo para gerar um binário sem o DWARF
+go build -ldflags="-w -s" -o server .
+
+
+docker build -t deploy-k8s:latest -f Dockerfile.prod .
+
+Comandos docker: 
+
+"docker images" verifica todas as suas imagens
+"docker rmi image_id" remove uma imagem
+"docker run --rm -p 8080:8080 curso-go-fullcycle/deploy-k8s:latest" inicia a imagem
+
+CGO_ENABLED=0 essa flag é necessária na imagem pois não utilizamos nenhum recurso do C. Logo, para utilizar
+a imagem "scratch", é necessário essa flag para podermos rodar o container.
+
+
